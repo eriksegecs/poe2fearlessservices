@@ -219,6 +219,8 @@ h1 strong {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-stroke: 1.5px rgba(112, 54, 25, 0.8);
+  text-stroke: 1.5px rgba(112, 54, 25, 0.8);
 }
 
 .promise-box,
