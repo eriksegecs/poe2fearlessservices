@@ -30,6 +30,7 @@ body {
   color: var(--text);
   background: var(--bg);
   font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 a {
@@ -46,7 +47,7 @@ a {
 .hero {
   position: relative;
   min-height: 100vh;
-  padding: clamp(22px, 3vw, 46px) clamp(18px, 4vw, 58px) 94px;
+  padding: clamp(20px, 2.7vw, 38px) clamp(18px, 4vw, 58px) 76px;
   isolation: isolate;
 }
 
@@ -138,8 +139,8 @@ a {
 
 .hero__content {
   display: grid;
-  grid-template-columns: minmax(420px, 0.95fr) minmax(360px, 0.78fr);
-  gap: clamp(26px, 4vw, 60px);
+  grid-template-columns: minmax(620px, 1.05fr) minmax(360px, 0.75fr);
+  gap: clamp(22px, 3vw, 46px);
   align-items: end;
   max-width: 1500px;
   min-height: calc(100vh - 126px);
@@ -147,7 +148,7 @@ a {
 }
 
 .copy-panel {
-  max-width: 740px;
+  max-width: 820px;
 }
 
 .eyebrow {
@@ -160,6 +161,7 @@ a {
   font-size: clamp(1rem, 2vw, 1.85rem);
   font-weight: 900;
   text-transform: uppercase;
+  white-space: nowrap;
   text-shadow: 0 3px 8px #000;
 }
 
@@ -172,7 +174,7 @@ a {
 }
 
 h1 {
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   text-transform: uppercase;
   font-family: var(--font-display);
   font-weight: 400;
@@ -184,15 +186,16 @@ h1 {
 h1 span,
 h1 strong {
   display: block;
+  white-space: nowrap;
 }
 
 h1 span {
-  font-size: clamp(4.5rem, 8.8vw, 8.9rem);
+  font-size: clamp(3.75rem, 6.35vw, 6.1rem);
   color: #f8f4e8;
 }
 
 h1 strong {
-  font-size: clamp(4rem, 8.2vw, 8.2rem);
+  font-size: clamp(3.45rem, 5.85vw, 5.65rem);
   background: linear-gradient(180deg, #fff1bd 3%, #ebb653 44%, #703619 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -210,8 +213,8 @@ h1 strong {
 
 .promise-box {
   position: relative;
-  margin-bottom: 28px;
-  padding: 18px 24px;
+  margin-bottom: 22px;
+  padding: 16px 22px;
   text-align: center;
   clip-path: polygon(2% 0, 98% 0, 100% 18%, 100% 82%, 98% 100%, 2% 100%, 0 82%, 0 18%);
 }
@@ -227,7 +230,7 @@ h1 strong {
 }
 
 .promise-box p {
-  font-size: clamp(1.9rem, 3.2vw, 3rem);
+  font-size: clamp(1.75rem, 2.7vw, 2.55rem);
   color: #f7f2e5;
 }
 
@@ -238,14 +241,14 @@ h1 strong {
 
 .promise-box span {
   margin-top: 6px;
-  font-size: clamp(1.6rem, 2.4vw, 2.35rem);
+  font-size: clamp(1.45rem, 2.05vw, 2.05rem);
   color: #f5efe2;
 }
 
 .promise-box small {
   margin-top: 8px;
   color: #f2c66c;
-  font-size: clamp(1.3rem, 2vw, 1.95rem);
+  font-size: clamp(1.2rem, 1.75vw, 1.7rem);
   text-transform: none;
 }
 
@@ -259,11 +262,11 @@ h1 strong {
 
 .feature-panel article {
   display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 16px;
+  grid-template-columns: 62px 1fr;
+  gap: 14px;
   align-items: center;
-  min-height: 118px;
-  padding: 16px 14px;
+  min-height: 98px;
+  padding: 13px 12px;
   border-bottom: 1px solid rgba(233, 177, 95, 0.18);
 }
 
@@ -291,9 +294,9 @@ h1 strong {
 }
 
 .feature-panel svg {
-  width: 62px;
-  height: 62px;
-  padding: 12px;
+  width: 54px;
+  height: 54px;
+  padding: 11px;
   color: var(--gold);
   border: 2px solid rgba(221, 151, 65, 0.72);
   border-radius: 50%;
@@ -319,7 +322,7 @@ h1 strong {
 }
 
 .action-panel {
-  padding-top: clamp(190px, 18vw, 250px);
+  padding-top: clamp(132px, 13vw, 185px);
 }
 
 .scene-cards {
@@ -331,7 +334,7 @@ h1 strong {
 
 .scene-cards article {
   position: relative;
-  min-height: clamp(190px, 21vw, 285px);
+  min-height: clamp(172px, 17vw, 236px);
   overflow: hidden;
   transform: rotate(-3deg);
   border: 2px solid rgba(234, 177, 91, 0.82);
@@ -490,8 +493,9 @@ h1 strong {
 .contact p {
   margin: 12px 0 0;
   color: #f0eee7;
-  font-size: clamp(1.2rem, 2.2vw, 2.1rem);
+  font-size: clamp(1.2rem, 1.75vw, 1.8rem);
   font-weight: 900;
+  white-space: nowrap;
   text-shadow: 0 3px 6px #000;
 }
 
@@ -503,8 +507,8 @@ h1 strong {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
-  min-height: 82px;
-  padding: 14px clamp(18px, 4vw, 72px);
+  min-height: 70px;
+  padding: 10px clamp(18px, 4vw, 72px);
   background: linear-gradient(90deg, rgba(20, 1, 0, 0.96), rgba(54, 5, 2, 0.94), rgba(18, 1, 0, 0.98));
   border-top: 1px solid rgba(173, 31, 22, 0.72);
   box-shadow: 0 -16px 32px rgba(0, 0, 0, 0.5);
@@ -551,6 +555,11 @@ footer p {
 }
 
 @media (max-width: 1180px) {
+  h1 span,
+  h1 strong {
+    white-space: normal;
+  }
+
   .hero {
     padding-bottom: 132px;
   }
@@ -590,6 +599,7 @@ footer p {
 @media (max-width: 720px) {
   .hero {
     padding: 18px 14px 186px;
+    overflow: hidden;
   }
 
   .hero__bg {
@@ -603,16 +613,26 @@ footer p {
   }
 
   .brand-mark {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: min(210px, 58vw);
-    min-height: 104px;
-    margin-left: auto;
+    position: absolute;
+    top: 18px;
+    right: 14px;
+    width: min(156px, 42vw);
+    min-height: 76px;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .brand-mark span {
+    font-size: 1.22rem;
+  }
+
+  .brand-mark strong {
+    margin-top: -5px;
+    font-size: 2.2rem;
   }
 
   .hero__content {
-    padding-top: 24px;
+    padding-top: 112px;
   }
 
   .eyebrow {
@@ -626,15 +646,34 @@ footer p {
   }
 
   h1 span {
-    font-size: clamp(3.6rem, 18vw, 5rem);
+    max-width: 100%;
+    font-size: clamp(3rem, 15vw, 4rem);
+    white-space: normal;
   }
 
   h1 strong {
-    font-size: clamp(3.35rem, 16.5vw, 4.7rem);
+    max-width: 100%;
+    font-size: clamp(2.85rem, 14vw, 3.65rem);
+    white-space: normal;
   }
 
   .promise-box {
     padding: 16px 14px;
+  }
+
+  .promise-box p {
+    font-size: 1.42rem;
+    line-height: 1.05;
+  }
+
+  .promise-box span {
+    font-size: 1.25rem;
+    line-height: 1.1;
+  }
+
+  .promise-box small {
+    font-size: 1.1rem;
+    line-height: 1.1;
   }
 
   .feature-panel {
