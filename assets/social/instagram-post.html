@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1080, initial-scale=1" />
+    <title>Fearless POE2 Services - Instagram Post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@600;700&family=Teko:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gold: #f3c96d;
+        --gold-deep: #9a5a20;
+        --red: #e02c2d;
+        --panel: rgba(5, 3, 2, 0.84);
+        --text: #fff7e8;
+        --muted: #d7c6a9;
+        --green: #19b632;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1080px;
+        height: 1350px;
+        margin: 0;
+        overflow: hidden;
+        background: #050301;
+      }
+
+      body {
+        color: var(--text);
+        font-family: "Rajdhani", Arial, sans-serif;
+      }
+
+      .post {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        padding: 60px 58px 46px;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.9) 78%, #080201 100%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.54) 58%, rgba(0, 0, 0, 0.18)),
+          url("../hero-bg.png") center / cover;
+        isolation: isolate;
+      }
+
+      .post::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          radial-gradient(circle at 80% 22%, rgba(255, 195, 92, 0.28), transparent 28%),
+          radial-gradient(circle at 35% 82%, rgba(172, 30, 20, 0.28), transparent 34%);
+      }
+
+      .post::after {
+        content: "";
+        position: absolute;
+        inset: 22px;
+        pointer-events: none;
+        border: 2px solid rgba(227, 154, 66, 0.54);
+        box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.92);
+      }
+
+      .brand {
+        position: absolute;
+        top: 40px;
+        right: 58px;
+        display: grid;
+        place-items: center;
+        width: 190px;
+        height: 190px;
+        overflow: hidden;
+        border: 2px solid rgba(239, 197, 107, 0.84);
+        border-radius: 10px;
+        background: #070301;
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.86), 0 0 36px rgba(236, 146, 47, 0.22);
+      }
+
+      .brand img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: 680px;
+        margin: 18px 0 18px;
+        color: #fff3dc;
+        font-family: "Cinzel", Georgia, serif;
+        font-size: 32px;
+        font-weight: 900;
+        line-height: 1;
+        text-transform: uppercase;
+        text-shadow: 0 4px 10px #000;
+      }
+
+      .eyebrow::before,
+      .eyebrow::after {
+        content: "";
+        width: 54px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      }
+
+      h1 {
+        width: 850px;
+        margin: 0;
+        font-family: "Teko", Impact, sans-serif;
+        font-weight: 700;
+        line-height: 0.86;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-shadow: 0 7px 20px #000, 0 16px 34px rgba(0, 0, 0, 0.88);
+      }
+
+      h1 span,
+      h1 strong {
+        display: block;
+      }
+
+      h1 span {
+        color: #fffaf0;
+        font-size: 98px;
+      }
+
+      h1 strong {
+        margin-top: 8px;
+        font-size: 103px;
+        background: linear-gradient(180deg, #fff1bd 0%, #e7b65a 43%, #7f371b 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .promise {
+        position: relative;
+        width: 930px;
+        margin-top: 44px;
+        padding: 28px 36px 26px;
+        text-align: center;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.95), rgba(31, 9, 6, 0.88)),
+          linear-gradient(180deg, rgba(255, 192, 95, 0.08), transparent);
+        border: 2px solid rgba(224, 147, 74, 0.78);
+        box-shadow: inset 0 0 34px rgba(255, 124, 40, 0.12), 0 20px 38px rgba(0, 0, 0, 0.56);
+        clip-path: polygon(2.5% 0, 97.5% 0, 100% 16%, 100% 84%, 97.5% 100%, 2.5% 100%, 0 84%, 0 16%);
+      }
+
+      .promise p,
+      .promise span,
+      .promise small {
+        display: block;
+        margin: 0;
+        font-family: "Teko", Impact, sans-serif;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .promise p {
+        color: #fff7e7;
+        font-size: 52px;
+      }
+
+      .promise p strong {
+        color: var(--red);
+        font-weight: 700;
+      }
+
+      .promise span {
+        margin-top: 14px;
+        color: #fff4df;
+        font-size: 41px;
+      }
+
+      .promise small {
+        margin-top: 14px;
+        color: var(--gold);
+        font-size: 35px;
+        text-transform: none;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        width: 930px;
+        margin-top: 28px;
+      }
+
+      .feature {
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        gap: 18px;
+        min-height: 116px;
+        padding: 20px 22px;
+        background: linear-gradient(135deg, rgba(4, 3, 2, 0.92), rgba(22, 8, 5, 0.74));
+        border: 1px solid rgba(224, 147, 74, 0.48);
+        box-shadow: inset 0 0 26px rgba(255, 124, 40, 0.06);
+      }
+
+      .feature-wide {
+        grid-column: 1 / -1;
+      }
+
+      .icon {
+        display: grid;
+        place-items: center;
+        width: 70px;
+        height: 70px;
+        color: var(--gold);
+        border: 3px solid rgba(217, 139, 41, 0.78);
+        border-radius: 50%;
+      }
+
+      .icon svg {
+        width: 38px;
+        height: 38px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .feature h2 {
+        margin: 0;
+        color: var(--gold);
+        font-family: "Teko", Impact, sans-serif;
+        font-size: 33px;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .feature p {
+        margin: 7px 0 0;
+        color: #eadcc5;
+        font-size: 24px;
+        line-height: 1.06;
+      }
+
+      .loot-strip {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        width: 930px;
+        margin-top: 26px;
+      }
+
+      .loot {
+        display: grid;
+        place-items: center;
+        min-height: 104px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.74);
+        border: 1px solid rgba(240, 197, 106, 0.54);
+      }
+
+      .loot img {
+        max-width: 78px;
+        max-height: 58px;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.8));
+      }
+
+      .loot span {
+        margin-top: 6px;
+        color: #fff0cf;
+        font-family: "Teko", Impact, sans-serif;
+        font-size: 19px;
+        line-height: 1;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .bottom {
+        position: absolute;
+        right: 58px;
+        bottom: 42px;
+        left: 58px;
+        display: grid;
+        grid-template-columns: 0.78fr 1fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .price {
+        display: grid;
+        justify-items: center;
+        padding: 18px 8px;
+        border-right: 1px solid rgba(235, 185, 91, 0.34);
+      }
+
+      .price span {
+        color: var(--red);
+        font-family: "Teko", Impact, sans-serif;
+        font-size: 39px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .price strong {
+        color: var(--gold);
+        font-family: "Teko", Impact, sans-serif;
+        font-size: 128px;
+        line-height: 0.82;
+        text-shadow: 0 5px 14px #000;
+      }
+
+      .price small {
+        margin-right: 10px;
+        font-size: 50px;
+      }
+
+      .contact {
+        display: grid;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .contact h2 {
+        margin: 0 0 12px;
+        font-family: "Teko", Impact, sans-serif;
+        font-size: 54px;
+        line-height: 1;
+        text-transform: uppercase;
+        text-shadow: 0 4px 10px #000;
+      }
+
+      .whatsapp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        width: 424px;
+        min-height: 76px;
+        padding: 10px 22px;
+        color: #fff;
+        background: linear-gradient(180deg, #22d43b, #098c1b);
+        border: 2px solid rgba(151, 255, 160, 0.54);
+        border-radius: 999px;
+        box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.16), 0 14px 20px rgba(0, 0, 0, 0.5);
+        font-family: "Teko", Impact, sans-serif;
+        font-size: 38px;
+        line-height: 0.92;
+        text-transform: uppercase;
+      }
+
+      .whatsapp svg {
+        width: 48px;
+        height: 48px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.9;
+      }
+
+      .contact p {
+        margin: 12px 0 0;
+        color: #f1eadf;
+        font-family: "Rajdhani", Arial, sans-serif;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 1;
+        text-shadow: 0 4px 10px #000;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main class="post" aria-label="Post Instagram Fearless POE2 Services">
+      <div class="brand">
+        <img src="fearlesspoe2services-instagram-profile.png" alt="Fearless POE2" />
+      </div>
+
+      <p class="eyebrow">Campaign &amp; Leveling Rush</p>
+      <h1>
+        <span>Crie seu char alt</span>
+        <strong>No POE2 em 4 horas</strong>
+      </h1>
+
+      <section class="promise">
+        <p>Do level <strong>0</strong> ao <strong>endgame / lv 60</strong></p>
+        <span>Campanha completa + quests importantes</span>
+        <small>Seu personagem pronto para o endgame!</small>
+      </section>
+
+      <section class="feature-grid" aria-label="Detalhes do serviço">
+        <article class="feature">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3Z" />
+              <path d="M8.5 11.5 12 15l3.5-3.5" />
+              <path d="M12 7v8" />
+            </svg>
+          </div>
+          <div>
+            <h2>Classe à escolha</h2>
+            <p>Você escolhe o personagem.</p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 5.5c3-.9 5-.4 8 1.4 3-1.8 5-2.3 8-1.4v13c-3-.9-5-.4-8 1.4-3-1.8-5-2.3-8-1.4v-13Z" />
+              <path d="M12 6.9v13" />
+            </svg>
+          </div>
+          <div>
+            <h2>Quests permanentes</h2>
+            <p>Pontos, resistência, HP e mana.</p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8" />
+              <path d="M12 7v5l3 2" />
+            </svg>
+          </div>
+          <div>
+            <h2>Média de 4 horas</h2>
+            <p>Crie seu alt ou personagem novo.</p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 16.5a8 8 0 0 1 0-9" />
+              <path d="M19 7.5a8 8 0 0 1 0 9" />
+              <path d="M8 14a4 4 0 0 1 0-4" />
+              <path d="M16 10a4 4 0 0 1 0 4" />
+              <circle cx="12" cy="12" r="1.6" />
+            </svg>
+          </div>
+          <div>
+            <h2>Live opcional</h2>
+            <p>Acompanhe o serviço por live.</p>
+          </div>
+        </article>
+
+        <article class="feature feature-wide">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 8h16v11H4z" />
+              <path d="M8 8V5h8v3" />
+              <path d="M4 12h16" />
+              <path d="M10 14h4" />
+            </svg>
+          </div>
+          <div>
+            <h2>Progresso na sua conta</h2>
+            <p>Loot, recompensas e progresso ficam na sua conta.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="loot-strip" aria-label="Itens POE2">
+        <div class="loot"><img src="../items/mageblood.png" alt="" /><span>Mageblood</span></div>
+        <div class="loot"><img src="../items/voices.png" alt="" /><span>Voices</span></div>
+        <div class="loot"><img src="../items/the-ordained.webp" alt="" /><span>Ordained</span></div>
+        <div class="loot"><img src="../items/morior-invictus.webp" alt="" /><span>Morior</span></div>
+        <div class="loot"><img src="../items/sacred-flame.webp" alt="" /><span>Sacred</span></div>
+        <div class="loot"><img src="../items/sightless-conviction.webp" alt="" /><span>Sightless</span></div>
+      </section>
+
+      <section class="bottom">
+        <div class="price">
+          <span>Apenas</span>
+          <strong><small>R$</small>250</strong>
+        </div>
+
+        <div class="contact">
+          <h2>Interessado?</h2>
+          <div class="whatsapp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19.1 4.9A9.8 9.8 0 0 0 3 16.1L2 22l6-1a9.8 9.8 0 0 0 11.1-16.1Z" />
+              <path d="M8.6 7.7c-.3.6-.5 1.2-.5 1.9 0 3 3.5 6.3 6.2 6.3.8 0 1.5-.2 2.1-.6l-.8-2.1-1.8.4c-1.1-.6-2-1.5-2.6-2.6l.4-1.8-2-1.5h-1Z" />
+            </svg>
+            Chama no WhatsApp
+          </div>
+          <p>(13) 98232-7841</p>
+        </div>
+      </section>
+
+    </main>
+  </body>
+</html>
